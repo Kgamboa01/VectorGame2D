@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VectorGame 2D | Simulador de espacios vectoriales</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-content">
+        <div class="logo">
+            <span class="logo-icon">V</span>
+            <div>
+                <h1>VectorGame <span>2D</span></h1>
+                <p>Simulador de movimiento vectorial</p>
+            </div>
+        </div>
+
+        <div class="header-badge">
+            ÁLGEBRA LINEAL
+        </div>
+    </div>
+</header>
+
+
+<main class="container">
+
+    <section class="welcome">
+        <div>
+            <h2>Laboratorio de movimiento vectorial</h2>
+
+            <p>
+                Experimenta con vectores, modifica sus componentes
+                y observa cómo se transforma el movimiento en el plano cartesiano.
+            </p>
+        </div>
+    </section>
+
+
+    <section class="workspace">
+
+        <!-- PANEL DE CONFIGURACIÓN -->
+
+        <aside class="control-panel">
+
+            <div class="section-title">
+                <h3>Configuración del movimiento</h3>
+                <p>Modifica los valores de los vectores.</p>
+            </div>
+
+
+            <!-- VECTOR A -->
+
+            <div class="vector-card vector-a">
+
+                <div class="vector-heading">
+                    <span class="vector-symbol">A</span>
+                    <div>
+                        <h4>Vector A</h4>
+                        <p>Primer desplazamiento</p>
+                    </div>
+                </div>
+
+                <div class="input-group">
+
+                    <label for="ax">Componente X</label>
+                    <input type="text" id="ax" value="3" inputmode="decimal">
+
+                    <label for="ay">Componente Y</label>
+                    <input type="text" id="ay" value="2" inputmode="decimal">
+
+                </div>
+
+            </div>
+
+
+            <!-- VECTOR B -->
+
+            <div class="vector-card vector-b">
+
+                <div class="vector-heading">
+                    <span class="vector-symbol">B</span>
+                    <div>
+                        <h4>Vector B</h4>
+                        <p>Segundo desplazamiento</p>
+                    </div>
+                </div>
+
+                <div class="input-group">
+
+                    <label for="bx">Componente X</label>
+                    <input type="text" id="bx" value="1" inputmode="decimal">
+
+                    <label for="by">Componente Y</label>
+                    <input type="text" id="by" value="-1" inputmode="decimal">
+
+                </div>
+
+            </div>
+
+
+            <!-- FACTORES ESCALARES -->
+
+            <div class="scalar-card">
+
+                <h4>Factores escalares</h4>
+
+                <div class="scalar-inputs">
+
+                    <div>
+                        <label for="alpha">α (Alfa)</label>
+                        <input type="text" id="alpha" value="2" inputmode="decimal">
+                    </div>
+
+                    <div>
+                        <label for="beta">β (Beta)</label>
+                        <input type="text" id="beta" value="1" inputmode="decimal">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- EJEMPLOS PREDEFINIDOS -->
+
+            <div class="examples-card">
+
+                <h4>Ejemplos predefinidos</h4>
+
+                <p>Selecciona un escenario para probar el simulador.</p>
+
+                <select id="exampleSelect">
+
+                    <option value="basic">Movimiento básico</option>
+
+                    <option value="combined">Movimiento combinado</option>
+
+                    <option value="inverse">Movimiento inverso</option>
+
+                </select>
+
+                <button id="loadExampleBtn" class="btn-example">
+                    Cargar ejemplo
+                </button>
+
+                <div id="exampleDescription" class="example-description">
+                    Vectores con componentes positivas.
+                </div>
+
+            </div>
+
+
+            <!-- BOTONES -->
+
+            <div class="button-group">
+
+                <button id="simulateBtn" class="btn-primary">
+                    ▶ Simular movimiento
+                </button>
+
+                <button id="resetBtn" class="btn-secondary">
+                    ↻ Reiniciar
+                </button>
+
+            </div>
+
+
+            <div class="formula-box">
+
+                <span>Fórmula aplicada</span>
+
+                <div class="formula">
+                    R = αA + βB
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ÁREA DE SIMULACIÓN -->
+
+        <section class="simulation-panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h3>Área de simulación</h3>
+                    <p>Visualización del desplazamiento en 2D</p>
+                </div>
+
+                <span class="status-badge" id="simulationStatus">
+                    En espera
+                </span>
+
+            </div>
+
+
+            <div class="canvas-container">
+
+                <canvas id="vectorCanvas" width="900" height="520">
+                    Tu navegador no admite Canvas.
+                </canvas>
+
+            </div>
+
+
+            <!-- LEYENDA -->
+
+            <div class="legend">
+
+                <div>
+                    <span class="legend-color color-a"></span>
+                    αA - Primer desplazamiento
+                </div>
+
+                <div>
+                    <span class="legend-color color-b"></span>
+                    βB - Segundo desplazamiento
+                </div>
+
+                <div>
+                    <span class="legend-color color-r"></span>
+                    R - Resultante
+                </div>
+
+            </div>
+
+
+            <!-- RESULTADOS -->
+
+            <div class="results-section">
+
+                <h3>Resultados del movimiento</h3>
+
+                <div class="results-grid">
+
+                    <div class="result-card">
+                        <span>Vector resultante</span>
+                        <strong id="resultVector">(0, 0)</strong>
+                    </div>
+
+                    <div class="result-card">
+                        <span>Posición final</span>
+                        <strong id="finalPosition">(0, 0)</strong>
+                    </div>
+
+                    <div class="result-card">
+                        <span>Magnitud resultante</span>
+                        <strong id="resultMagnitude">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </section>
+
+    <!-- CONCEPTOS MATEMÁTICOS -->
+
+    <section class="concepts-panel">
+
+        <div class="panel-header">
+            <div>
+                <h3>Conceptos matemáticos aplicados</h3>
+                <p>
+                    Aprende los fundamentos matemáticos utilizados
+                    en la simulación.
+                </p>
+            </div>
+        </div>
+
+
+        <div class="concepts-grid">
+
+            <!-- CONCEPTO 1 -->
+
+            <article class="concept-card">
+
+                <div class="concept-icon blue-icon">↗</div>
+
+                <h4>Vectores en R²</h4>
+
+                <p>
+                    Un vector representa una cantidad que posee
+                    dos componentes: una dirección horizontal X
+                    y una dirección vertical Y.
+                </p>
+
+                <div class="concept-formula">
+                    A = (x, y)
+                </div>
+
+            </article>
+
+
+            <!-- CONCEPTO 2 -->
+
+            <article class="concept-card">
+
+                <div class="concept-icon orange-icon">×</div>
+
+                <h4>Producto por escalares</h4>
+
+                <p>
+                    Consiste en multiplicar cada componente
+                    del vector por un número real, modificando
+                    su magnitud y posiblemente su dirección.
+                </p>
+
+                <div class="concept-formula">
+                    αA = (αx, αy)
+                </div>
+
+            </article>
+
+
+            <!-- CONCEPTO 3 -->
+
+            <article class="concept-card">
+
+                <div class="concept-icon green-icon">+</div>
+
+                <h4>Suma de vectores</h4>
+
+                <p>
+                    Se suman las componentes correspondientes
+                    de dos vectores para obtener un nuevo
+                    vector.
+                </p>
+
+                <div class="concept-formula">
+                    A + B = (Ax + Bx, Ay + By)
+                </div>
+
+            </article>
+
+
+            <!-- CONCEPTO 4 -->
+
+            <article class="concept-card">
+
+                <div class="concept-icon purple-icon">∑</div>
+
+                <h4>Combinación lineal</h4>
+
+                <p>
+                    Permite construir un vector mediante
+                    la suma de otros vectores multiplicados
+                    por factores escalares.
+                </p>
+
+                <div class="concept-formula">
+                    R = αA + βB
+                </div>
+
+            </article>
+
+
+            <!-- CONCEPTO 5 -->
+
+            <article class="concept-card">
+
+                <div class="concept-icon cyan-icon">√</div>
+
+                <h4>Magnitud de un vector</h4>
+
+                <p>
+                    Representa la longitud del vector y se
+                    obtiene utilizando sus componentes
+                    mediante el teorema de Pitágoras.
+                </p>
+
+                <div class="concept-formula">
+                    |R| = √(Rx² + Ry²)
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROCEDIMIENTO MATEMÁTICO -->
+
+    <section class="procedure-panel">
+
+        <div class="panel-header">
+
+            <div>
+                <h3>Procedimiento matemático</h3>
+                <p>Desarrollo paso a paso de las operaciones vectoriales.</p>
+            </div>
+
+        </div>
+
+        <div id="mathSteps" class="math-steps">
+
+            <div class="empty-state">
+                <span>∑</span>
+                <p>
+                    Configura los vectores y presiona
+                    <strong>Simular movimiento</strong>
+                    para visualizar el procedimiento matemático.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer class="footer">
+        <p>VectorGame 2D | Simulación de espacios vectoriales</p>
+        <p>Práctica 3 - Álgebra Lineal</p>
+    </footer>
+
+</main>
+
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

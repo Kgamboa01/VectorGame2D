@@ -1,0 +1,880 @@
+/* =========================================
+   CONFIGURACIÓN GENERAL
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f3f6fc;
+    color: #1e293b;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1450px;
+    width: 94%;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   ENCABEZADO
+========================================= */
+
+.header {
+    background: #ffffff;
+    border-bottom: 1px solid #e5eaf2;
+    padding: 18px 0;
+}
+
+.header-content {
+    max-width: 1450px;
+    width: 94%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.logo-icon {
+    background: #2563eb;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.logo h1 {
+    font-size: 23px;
+    color: #172554;
+}
+
+.logo h1 span {
+    color: #2563eb;
+}
+
+.logo p {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 3px;
+}
+
+.header-badge {
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 9px 16px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   BIENVENIDA
+========================================= */
+
+.welcome {
+    margin: 32px 0 24px;
+}
+
+.welcome h2 {
+    font-size: 27px;
+    color: #172554;
+    margin-bottom: 9px;
+}
+
+.welcome p {
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 750px;
+}
+
+
+/* =========================================
+   DISTRIBUCIÓN PRINCIPAL
+========================================= */
+
+.workspace {
+    display: grid;
+    grid-template-columns: 330px 1fr;
+    gap: 22px;
+    align-items: start;
+}
+
+
+/* =========================================
+   PANELES
+========================================= */
+
+.control-panel,
+.simulation-panel,
+.procedure-panel {
+    background: #ffffff;
+    border: 1px solid #e5eaf2;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.035);
+}
+
+.section-title {
+    margin-bottom: 22px;
+}
+
+.section-title h3,
+.panel-header h3 {
+    font-size: 17px;
+    color: #172554;
+}
+
+.section-title p,
+.panel-header p {
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+
+/* =========================================
+   TARJETAS DE VECTORES
+========================================= */
+
+.vector-card {
+    border: 1px solid #e5eaf2;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    background: #ffffff;
+}
+
+.vector-a {
+    border-left: 4px solid #2563eb;
+}
+
+.vector-b {
+    border-left: 4px solid #e87935;
+}
+
+.vector-heading {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin-bottom: 15px;
+}
+
+.vector-symbol {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.vector-a .vector-symbol {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.vector-b .vector-symbol {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+.vector-heading h4 {
+    font-size: 14px;
+}
+
+.vector-heading p {
+    color: #94a3b8;
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+
+/* =========================================
+   ENTRADAS NUMÉRICAS
+========================================= */
+
+.input-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.input-group label,
+.scalar-inputs label {
+    font-size: 11px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.input-group input,
+.scalar-inputs input {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    border: 1px solid #dbe3ef;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    color: #172554;
+    background: #f8fafc;
+    transition: 0.2s;
+}
+
+.input-group input:focus,
+.scalar-inputs input:focus {
+    border-color: #2563eb;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+
+/* =========================================
+   FACTORES ESCALARES
+========================================= */
+
+.scalar-card {
+    background: #f8fafc;
+    border: 1px solid #e5eaf2;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 18px;
+}
+
+.scalar-card h4 {
+    font-size: 14px;
+    margin-bottom: 14px;
+    color: #172554;
+}
+
+.scalar-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+
+/* =========================================
+   BOTONES
+========================================= */
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 9px;
+    padding: 13px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(37, 99, 235, 0.2);
+}
+
+.btn-secondary {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+.btn-secondary:hover {
+    background: #e2e8f0;
+}
+
+
+/* =========================================
+   FÓRMULA
+========================================= */
+
+.formula-box {
+    margin-top: 20px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+}
+
+.formula-box span {
+    font-size: 11px;
+    color: #64748b;
+}
+
+.formula {
+    margin-top: 8px;
+    color: #1d4ed8;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* =========================================
+   ENCABEZADOS DE PANELES
+========================================= */
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    gap: 12px;
+}
+
+.status-badge {
+    background: #f1f5f9;
+    color: #64748b;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   PLANO CARTESIANO
+========================================= */
+
+.canvas-container {
+    width: 100%;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* =========================================
+   LEYENDA
+========================================= */
+
+.legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    margin-top: 17px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5eaf2;
+}
+
+.legend div {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.legend-color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.color-a {
+    background: #2563eb;
+}
+
+.color-b {
+    background: #e87935;
+}
+
+.color-r {
+    background: #16a34a;
+}
+
+
+/* =========================================
+   RESULTADOS
+========================================= */
+
+.results-section {
+    margin-top: 20px;
+}
+
+.results-section h3 {
+    font-size: 15px;
+    color: #172554;
+    margin-bottom: 15px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.result-card {
+    background: #f8fafc;
+    border: 1px solid #e5eaf2;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.result-card span {
+    display: block;
+    font-size: 11px;
+    color: #64748b;
+    margin-bottom: 9px;
+}
+
+.result-card strong {
+    font-size: 18px;
+    color: #1d4ed8;
+}
+
+
+/* =========================================
+   PROCEDIMIENTO MATEMÁTICO
+========================================= */
+
+.procedure-panel {
+    margin-top: 22px;
+}
+
+.math-steps {
+    margin-top: 20px;
+}
+
+.empty-state {
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+}
+
+.empty-state span {
+    font-size: 32px;
+    color: #2563eb;
+}
+
+.empty-state p {
+    font-size: 13px;
+    color: #64748b;
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   PIE DE PÁGINA
+========================================= */
+
+.footer {
+    text-align: center;
+    padding: 28px 0;
+    color: #94a3b8;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   DISEÑO RESPONSIVE
+========================================= */
+
+@media (max-width: 950px) {
+
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .welcome h2 {
+        font-size: 22px;
+    }
+
+    .control-panel,
+    .simulation-panel,
+    .procedure-panel {
+        padding: 16px;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .legend {
+        gap: 12px;
+    }
+
+    /* =========================================
+   PROCEDIMIENTO MATEMÁTICO - NUEVOS ESTILOS
+========================================= */
+
+    .math-step {
+        display: flex;
+        gap: 16px;
+        padding: 20px;
+        margin-bottom: 13px;
+        border: 1px solid #e5eaf2;
+        border-radius: 12px;
+        background: #ffffff;
+        transition: 0.2s;
+    }
+
+    .math-step:hover {
+        border-color: #bfdbfe;
+        box-shadow: 0 3px 10px rgba(37, 99, 235, 0.06);
+    }
+
+    .step-number {
+        min-width: 34px;
+        height: 34px;
+        background: #dbeafe;
+        color: #2563eb;
+        border-radius: 9px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .step-content {
+        flex: 1;
+        min-width: 0;
+    }
+
+    .step-content h4 {
+        font-size: 14px;
+        color: #172554;
+        margin-bottom: 9px;
+    }
+
+    .math-explanation {
+        color: #64748b;
+        font-size: 12px;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+
+    .math-equation {
+        background: #f8fafc;
+        border: 1px solid #e5eaf2;
+        border-radius: 8px;
+        padding: 12px 15px;
+        margin-top: 8px;
+        color: #334155;
+        font-family: "Cambria Math", Georgia, serif;
+        font-size: 16px;
+        overflow-wrap: anywhere;
+    }
+
+    .result-step {
+        background: #f8fbff;
+        border-color: #bfdbfe;
+    }
+
+    .final-equation {
+        background: #eff6ff;
+        border-color: #bfdbfe;
+        color: #1d4ed8;
+        font-weight: bold;
+        font-size: 19px;
+    }
+
+    @media (max-width: 600px) {
+
+        .math-step {
+            padding: 14px;
+            gap: 10px;
+        }
+
+        .math-equation {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+    }
+
+}
+
+/* =========================================
+   CONCEPTOS MATEMÁTICOS
+========================================= */
+
+.concepts-panel {
+
+    background: #ffffff;
+    border: 1px solid #e5eaf2;
+    border-radius: 16px;
+
+    padding: 24px;
+    margin-top: 22px;
+
+    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.035);
+
+}
+
+.concepts-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 16px;
+
+    margin-top: 22px;
+
+}
+
+.concept-card {
+
+    background: #f8fafc;
+
+    border: 1px solid #e5eaf2;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    transition: 0.2s;
+
+}
+
+.concept-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color: #bfdbfe;
+
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.08);
+
+}
+
+.concept-icon {
+
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+
+    font-size: 23px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+
+}
+
+.blue-icon {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.orange-icon {
+    background: #ffedd5;
+    color: #ea580c;
+}
+
+.green-icon {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.purple-icon {
+    background: #f3e8ff;
+    color: #9333ea;
+}
+
+.cyan-icon {
+    background: #cffafe;
+    color: #0891b2;
+}
+
+.concept-card h4 {
+
+    color: #172554;
+
+    font-size: 15px;
+
+    margin-bottom: 10px;
+
+}
+
+.concept-card p {
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.7;
+
+    min-height: 82px;
+
+}
+
+.concept-formula {
+
+    background: #ffffff;
+
+    border: 1px solid #e5eaf2;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    margin-top: 14px;
+
+    text-align: center;
+
+    color: #1d4ed8;
+
+    font-family: "Cambria Math", Georgia, serif;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+}
+
+@media (max-width: 950px) {
+
+    .concepts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .concepts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* =========================================
+   EJEMPLOS PREDEFINIDOS
+========================================= */
+
+    .examples-card {
+
+        background: #f8fafc;
+        border: 1px solid #e5eaf2;
+        border-radius: 12px;
+
+        padding: 16px;
+        margin-bottom: 18px;
+
+    }
+
+    .examples-card h4 {
+
+        color: #172554;
+        font-size: 14px;
+        margin-bottom: 7px;
+
+    }
+
+    .examples-card p {
+
+        color: #64748b;
+        font-size: 11px;
+        margin-bottom: 12px;
+
+    }
+
+    .examples-card select {
+
+        width: 100%;
+        padding: 10px;
+
+        border: 1px solid #dbe3ef;
+        border-radius: 8px;
+
+        background: #ffffff;
+        color: #334155;
+
+        font-size: 12px;
+        outline: none;
+
+        margin-bottom: 10px;
+
+    }
+
+    .examples-card select:focus {
+
+        border-color: #2563eb;
+
+    }
+
+    .btn-example {
+
+        width: 100%;
+        background: #e0e7ff;
+        color: #3730a3;
+
+    }
+
+    .btn-example:hover {
+
+        background: #c7d2fe;
+
+    }
+
+    .example-description {
+
+        margin-top: 10px;
+
+        font-size: 11px;
+        line-height: 1.5;
+
+        color: #64748b;
+
+    }
+
+}
